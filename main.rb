@@ -6,17 +6,27 @@ if Gem.win_platform?
     io.set_encoding(Encoding.default_external, Encoding.default_internal)
   end
 end
+require 'rexml/document'
+
 require_relative 'lib/product'
 require_relative 'lib/book'
 require_relative 'lib/movie'
-require_relative 'lib/product_collection'
+require_relative 'lib/disc'
 
-collection = Product_collection.from_dir(File.dirname(__FILE__) + '/data')
-collection.sort!(by: :price, order: :asc)
-collection.to_a.each do |product|
-  puts product
+total_price = 0
+products = Product.read_from_xml('data/products.xml')
+
+choice = nil
+
+while choice != 'x'
+  Product.showcase(products)
+
+  choice = STDIN.gets.chomp
+
+  if choice != 'x' && choice.to_i < products.size && choice.to_i >= 0
+    product = products[choice.to_i]
+    total_price += product.buy
+  end
 end
 
-puts
-products.each { |product| puts product }
-
+puts "Спасибо за покупки, с Вас #{total_price} руб."

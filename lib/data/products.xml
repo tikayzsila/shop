@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<products>
+  <product price="1000" amount_available="5">
+    <book title="Приключения Тома Сойера" author_name="Марк Твен"></book>
+  </product>
+  <product price="1100" amount_available="1">
+    <book title="Воспоминания Шерлока Холмса" author_name="Артур Конан Дойль"></book>
+  </product>
+  <product price="500" amount_available="2">
+    <music title="Ram It Down" genre ="(Heavy Metal)" author_name="Judas Priest"></music>
+  </product>
+  <product price="350" amount_available="3">
+    <movie title="Пролетая над грездом кукушки" author_name="Милош Форман" year="(1975)"></movie>
+  </product>
+
+</products>
